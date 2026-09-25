@@ -34,7 +34,7 @@ Tipp: Bilder vorher auf ca. 1600 px Breite verkleinern (z. B. mit squoosh.app).
 ## Vor dem Livegang
 
 - **Impressum / Datenschutz:** gelb markierte Platzhalter (HRB, USt-IdNr., Handwerksrolle, Stand) ergänzen.
-- **Adresse prüfen:** Eisenbahnstraße 5a (einige Verzeichnisse nennen 3a).
+- **Adresse:** Zur Ziegelei 22, 26683 Saterland.
 - **Farben:** zentral in `tailwind.config.js` (`brand`, `ink` …) und in `assets/legal.css` änderbar.
 
 ## Lokal bearbeiten
