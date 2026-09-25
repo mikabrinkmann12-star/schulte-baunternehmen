@@ -1,8 +1,7 @@
 # Schulte Bauunternehmen – Website
 
 Statische One-Page-Website (HTML + Tailwind CSS, lokal gehostete Schriften) für die
-U. Schulte Bauunternehmung GmbH aus Saterland-Scharrel. Aufbau und Stil orientieren
-sich an maler-brinkmann.de.
+U. Schulte Bauunternehmung GmbH aus Saterland-Scharrel.
 
 ## Auf Netlify veröffentlichen
 
@@ -11,21 +10,24 @@ sich an maler-brinkmann.de.
 3. Build-Einstellungen stehen schon in `netlify.toml` (`npm run build`, Publish directory `.`) → **Deploy**.
 4. Unter **Site configuration → Forms** die Formularerkennung aktivieren und unter
    **Form notifications** eine E-Mail an `info@schultebau.net` einrichten
-   (Formulare: `kontakt` und `bewerbung`).
+   (ein Formular `kontakt`; Bewerbungen laufen über die Option „Bewerbung“ im Dropdown,
+   dann erscheint ein Datei-Upload. Direktlink: `…/#bewerbung`).
 
 ## Fotos einsetzen
 
 Die Seite zeigt gestreifte Platzhalter, solange ein Foto fehlt. Einfach die Bilder
 mit genau diesen Namen nach `assets/img/` legen, dann erscheinen sie automatisch:
 
-| Datei                 | Wo                                   | Format  |
-|-----------------------|--------------------------------------|---------|
-| `hero.jpg`            | Startbereich rechts                  | Hochformat 4:5 |
-| `rohbau.jpg`          | Einblicke – „Rohbau“-Seite der Animation | Hochformat 3:4 |
-| `fertig.jpg`          | Einblicke – „Fertig“-Seite (möglichst dasselbe Haus) | Hochformat 3:4 |
-| `plusenergiehaus.jpg` | Plus-Energiehaus-Bereich (Haus mit PV) | Quer 4:3 |
-| `unternehmen.jpg`     | Unternehmen (Ulrich Schulte / Team)  | Quer 4:3 |
-| `ref1.jpg` … `ref8.jpg` | Referenz-Galerie                   | quadratisch |
+| Datei                   | Wo                                              | Format |
+|-------------------------|-------------------------------------------------|--------|
+| `hero.jpg`              | Startbild, volle Breite (wird links abgedunkelt) | Quer, mind. 2000 px |
+| `leistung-neubau.jpg`   | Leistungen – Neubau                              | Hochformat 4:5 |
+| `leistung-rohbau.jpg`   | Leistungen – Rohbau & Mauerwerk                  | Hochformat 4:5 |
+| `leistung-bestand.jpg`  | Leistungen – Bauen im Bestand                    | Hochformat 4:5 |
+| `leistung-energie.jpg`  | Leistungen – Energie (PV/Wärmepumpe)             | Hochformat 4:5 |
+| `rohbau.jpg` + `fertig.jpg` | Regler „Vom Rohbau zum Zuhause“ – möglichst dasselbe Haus aus gleicher Perspektive | Quer 16:9 |
+| `unternehmen.jpg`       | Über uns (Ulrich Schulte / Team)                 | Hochformat 4:5 |
+| `ref1.jpg` … `ref7.jpg` | Referenzen (ref1 groß, ref6/ref7 breit)          | beliebig, wird zugeschnitten |
 
 Tipp: Bilder vorher auf ca. 1600 px Breite verkleinern (z. B. mit squoosh.app).
 
@@ -48,7 +50,7 @@ ist trotzdem eingecheckt, damit die Seite auch ohne Build (z. B. lokal per Doppe
 ## Struktur
 
 ```
-index.html          Startseite (Leistungen, Ablauf, Plus-Energiehaus, Unternehmen, Referenzen, Kontakt, Karriere)
+index.html          Startseite (Leistungen, Rohbau/Fertig-Regler, Plus-Energiehaus, Ablauf, Referenzen, Über uns, Kontakt)
 impressum.html      Impressum
 datenschutz.html    Datenschutzerklärung
 danke.html          Bestätigung nach dem Absenden eines Formulars

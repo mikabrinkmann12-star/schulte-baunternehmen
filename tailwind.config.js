@@ -4,16 +4,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand:     '#D9822B', // Ziegel-/Bau-Orange (Primär)
+        brand:     '#D9822B', // Ziegel-Orange (Primär)
         branddark: '#B96A1C', // Hover
-        brandsoft: '#FBF3EA', // helle Fläche
-        ink:       '#1F2428', // Anthrazit (Text/Kontrast)
-        ink2:      '#4A5157',
-        line:      '#ECE6DE',
+        ink:       '#16191C', // Anthrazit
+        ink2:      '#4B5258', // Fließtext
+        concrete:  '#F3F1EE', // helle Betonfläche
+        line:      '#E2DDD6', // Linien
       },
       fontFamily: {
-        heading: ['Poppins', 'sans-serif'],
-        body:    ['"Open Sans"', 'sans-serif'],
+        display: ['"Barlow Condensed"', '"Arial Narrow"', 'sans-serif'],
+        sans:    ['Inter', 'system-ui', 'sans-serif'],
       },
     },
   },
