@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schulte Bauunternehmen — Hausbau in Saterland-Scharrel | Schlüsselfertig, Rohbau &amp; Sanierung</title>
+  <meta name="description" content="U. Schulte Bauunternehmung GmbH aus Saterland-Scharrel: schlüsselfertiges Bauen, Rohbau, Sanierung &amp; Modernisierung sowie energieeffiziente Häuser bis zum Plus-Energiehaus. Über 25 Jahre Erfahrung im Nordwesten." />
+  <meta name="theme-color" content="#1F2428" />
+  <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preload" href="assets/fonts/poppins-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/css/fonts.css" />
+  <link rel="stylesheet" href="assets/css/tailwind.css" />
+
+  <style>
+    body { font-family: 'Open Sans', sans-serif; background: #FFFFFF; color: #1F2428; }
+    .font-heading { font-family: 'Poppins', sans-serif; }
+    section { scroll-margin-top: 96px; }
+
+    /* ---- Scroll reveal ---- */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; } .d4 { transition-delay: .32s; }
+
+    /* ---- Header (groß oben, schrumpft beim Scrollen) ---- */
+    .site-header { transition: padding .35s cubic-bezier(.4,0,.2,1), box-shadow .3s ease; padding-top: 1.2rem; padding-bottom: 1.2rem; }
+    .site-header.scrolled { padding-top: .55rem; padding-bottom: .55rem; box-shadow: 0 8px 30px rgba(31,36,40,.08); }
+    .site-logo { height: 3.4rem; width: auto; transition: height .35s cubic-bezier(.4,0,.2,1); }
+    .site-header.scrolled .site-logo { height: 2.6rem; }
+    @media (min-width: 640px) {
+      .site-header { padding-top: 1.6rem; padding-bottom: 1.6rem; }
+      .site-logo { height: 4.4rem; }
+      .site-header.scrolled .site-logo { height: 3rem; }
+    }
+    .navlink { position: relative; }
+    .navlink::after { content:''; position:absolute; left:0; bottom:-6px; height:2px; width:0; background:#D9822B; transition: width .3s ease; }
+    .navlink:hover::after, .navlink.active::after { width:100%; }
+
+    /* ---- Mobile menu ---- */
+    .mobile-menu { transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .3s ease; }
+    .mobile-menu.hidden-menu { transform: translateX(100%); opacity:0; pointer-events:none; }
+
+    /* ---- Accordion (Leistungen) ---- */
+    .acc-panel { max-height: 0; overflow: hidden; transition: max-height .4s ease, opacity .3s ease; opacity: 0; }
+    .acc-item.open .acc-panel { max-height: 200px; opacity: 1; }
+    .acc-plus { transition: transform .35s cubic-bezier(.4,0,.2,1), background-color .25s ease, color .25s ease; }
+    .acc-item.open .acc-plus { transform: rotate(135deg); background:#D9822B; color:#fff; }
+    .acc-trigger:hover .acc-plus { transform: scale(1.12) rotate(90deg); }
+    .acc-item.open .acc-trigger:hover .acc-plus { transform: scale(1.12) rotate(135deg); }
+
+    /* ---- Bild-Platzhalter (solange Fotos fehlen) ---- */
+    :where(.ph) { position: relative; }  /* :where = Tailwind-Klassen wie .absolute gewinnen */
+    .ph { background:
+            repeating-linear-gradient(135deg, rgba(217,130,43,.10) 0 14px, rgba(217,130,43,.04) 14px 28px),
+            linear-gradient(160deg, #2A3035, #1F2428); }
+    .ph::after { content: attr(data-label); position:absolute; inset:auto 0 50% 0; transform: translateY(50%); text-align:center; padding: 0 1rem;
+                 font: 600 .8rem/1.3 'Open Sans', sans-serif; letter-spacing:.08em; text-transform:uppercase; color: rgba(255,255,255,.55); }
+    :where(.ph > img) { position: relative; }
+    .ph > img { z-index: 1; }
+
+    /* ---- Gallery ---- */
+    .gal-item img { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+    .gal-item:hover img { transform: scale(1.08); }
+
+    /* ---- Chatbot ---- */
+    .chat-panel { transform-origin: bottom right; transition: transform .35s cubic-bezier(.34,1.4,.6,1), opacity .3s ease; }
+    .chat-panel.closed { transform: scale(.6) translateY(20px); opacity:0; pointer-events:none; }
+    @keyframes typing { 0%,60%,100%{transform:translateY(0);opacity:.4} 30%{transform:translateY(-4px);opacity:1} }
+    .dot { animation: typing 1.2s infinite; }
+    .dot:nth-child(2){animation-delay:.15s} .dot:nth-child(3){animation-delay:.3s}
+    @keyframes pulse-ring { 0%{transform:scale(.9);opacity:.7} 70%{transform:scale(1.5);opacity:0} 100%{opacity:0} }
+    .pulse-ring { animation: pulse-ring 2.4s ease-out infinite; }
+
+    /* ---- Platz für Sticky-CTA auf Mobil ---- */
+    @media (max-width: 1023px) { body { padding-bottom: 4.25rem; } }
+
+    /* ---- Karten-Micro-Interaction ---- */
+    .svc-card { transition: transform .3s ease, box-shadow .3s ease; }
+    .svc-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(31,36,40,.10); }
+
+    @keyframes floaty { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-12px); } }
+    .floaty { animation: floaty 6s ease-in-out infinite; }
+    @keyframes blobDrift { 0%,100%{ transform: translate(0,0) scale(1); } 50%{ transform: translate(22px,16px) scale(1.1); } }
+    .blob-anim { animation: blobDrift 16s ease-in-out infinite; }
+
+    /* Vorher/Nachher-Wisch: Rohbau -> fertiges Haus */
+    .ba-before { overflow: hidden; clip-path: inset(0 0 0 0); animation: baWipe 7s cubic-bezier(.65,0,.35,1) infinite; }
+    .ba-divider { position: absolute; top: 0; bottom: 0; left: 100%; width: 3px; margin-left: -1.5px; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,.45); animation: baLine 7s cubic-bezier(.65,0,.35,1) infinite; z-index: 5; }
+    .ba-divider::after { content: '⟷'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); display: grid; place-items: center; width: 32px; height: 32px; font-size: 14px; color: #1F2428; border-radius: 9999px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.35); }
+    @keyframes baWipe { 0%,14% { clip-path: inset(0 0 0 0); } 45%,57% { clip-path: inset(0 100% 0 0); } 90%,100% { clip-path: inset(0 0 0 0); } }
+    @keyframes baLine { 0%,14% { left: 100%; } 45%,57% { left: 0%; } 90%,100% { left: 100%; } }
+
+    /* Ablauf-Linie */
+    .step-line { background: linear-gradient(90deg, #D9822B 0 50%, transparent 50%) 0 0 / 14px 2px repeat-x; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity:1!important; transform:none!important; transition:none!important; }
+      .pulse-ring, .dot, .floaty, .blob-anim { animation: none!important; }
+      html { scroll-behavior:auto; }
+      .site-header, .site-logo { transition: none; }
+      .ba-before { animation:none!important; clip-path: inset(0 100% 0 0); }
+      .ba-divider { display:none; }
+    }
+
+    /* ========================= INTRO: MAUER WIRD GEBAUT ========================= */
+    #intro { position: fixed; inset: 0; z-index: 9999; background: #FFFFFF; display: grid; place-items: center; overflow: hidden; }
+    #intro.intro--out { opacity: 0; transition: opacity .7s ease; pointer-events: none; }
+    .intro-wall { display: grid; gap: 6px; }
+    .intro-row { display: flex; gap: 6px; justify-content: center; }
+    .intro-row:nth-child(even) { transform: translateX(22px); }
+    .brick { width: 44px; height: 20px; border-radius: 3px; background: #D9822B; opacity: 0;
+             transform: translateY(-70px) rotate(-6deg);
+             animation: brick-drop .5s cubic-bezier(.3,1.35,.5,1) forwards; animation-delay: var(--d, 0s); }
+    .brick.alt { background: #B96A1C; }
+    @media (min-width: 640px) { .brick { width: 64px; height: 26px; } .intro-row:nth-child(even) { transform: translateX(32px); } }
+    @keyframes brick-drop { to { opacity: 1; transform: none; } }
+    .intro-word { margin-top: 1.6rem; text-align: center; font-family: 'Poppins', sans-serif; font-weight: 800; letter-spacing: .16em; color: #1F2428;
+                  font-size: clamp(1.9rem, 8vw, 4.6rem); line-height: 1; opacity: 0; animation: word-reveal 1.1s ease forwards; animation-delay: 1.35s; }
+    .intro-sub { display:block; margin-top: .6rem; font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: clamp(.7rem, 2.4vw, 1rem); letter-spacing: .42em; color: #B96A1C; }
+    @keyframes word-reveal {
+      0%   { opacity: 0; transform: translateY(14px); filter: blur(8px); letter-spacing: .34em; }
+      100% { opacity: 1; transform: none; filter: blur(0); letter-spacing: .16em; }
+    }
+    @media (prefers-reduced-motion: reduce) { #intro { display: none !important; } }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-brand selection:text-white">
+
+  <!-- ========================= INTRO ========================= -->
+  <div id="intro" aria-hidden="true">
+    <div>
+      <div class="intro-wall" id="introWall"></div>
+      <div class="intro-word">SCHULTE<span class="intro-sub">BAUUNTERNEHMEN</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var intro = document.getElementById('intro');
+      if (!intro) return;
+      var seen = false;
+      try { seen = sessionStorage.getItem('introSeen') === '1'; } catch (e) {}
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (seen || reduce) { intro.parentNode.removeChild(intro); return; }
+      try { sessionStorage.setItem('introSeen', '1'); } catch (e) {}
+
+      var prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+
+      // Mauer Reihe für Reihe von unten nach oben aufbauen
+      var wall = document.getElementById('introWall');
+      var ROWS = 4, COLS = 5, rows = [];
+      for (var r = 0; r < ROWS; r++) {
+        var row = document.createElement('div');
+        row.className = 'intro-row';
+        for (var c = 0; c < COLS; c++) {
+          var b = document.createElement('span');
+          b.className = 'brick' + ((r + c) % 3 === 0 ? ' alt' : '');
+          var fromBottom = ROWS - 1 - r;
+          b.style.setProperty('--d', (fromBottom * 0.26 + c * 0.05).toFixed(2) + 's');
+          row.appendChild(b);
+        }
+        rows.push(row);
+      }
+      rows.forEach(function (row) { wall.appendChild(row); });
+
+      var done = false;
+      function finish() {
+        if (done) return; done = true;
+        intro.classList.add('intro--out');
+        document.body.style.overflow = prevOverflow;
+        window.setTimeout(function () { intro.parentNode && intro.parentNode.removeChild(intro); }, 750);
+      }
+      intro.addEventListener('click', finish);
+      window.setTimeout(finish, 2900);
+    })();
+  </script>
+
+  <!-- ========================= HEADER ========================= -->
+  <header id="header" class="site-header fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md">
+    <div class="mx-auto max-w-7xl px-5 flex items-center justify-between">
+      <a href="#top" class="flex items-center" aria-label="Schulte Bauunternehmen — Startseite">
+        <img src="assets/logo/logo.svg" alt="Schulte Bauunternehmen Logo" class="site-logo" />
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-9 text-sm font-bold text-ink whitespace-nowrap">
+        <a href="#leistungen" class="navlink">Leistungen</a>
+        <a href="#energie" class="navlink">Plus-Energiehaus</a>
+        <a href="#unternehmen" class="navlink">Unternehmen</a>
+        <a href="#referenzen" class="navlink">Referenzen</a>
+        <a href="#karriere" class="navlink">Karriere</a>
+        <a href="#kontakt" class="navlink">Kontakt</a>
+      </nav>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="tel:+494492921381"
+           class="inline-flex items-center gap-2 whitespace-nowrap cursor-pointer rounded-full bg-brand px-3.5 sm:px-5 lg:px-3.5 xl:px-5 py-2.5 text-sm font-bold text-white transition-all duration-200 hover:bg-branddark active:scale-95"
+           title="Direkt anrufen: 04492 921381">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="hidden sm:inline lg:hidden xl:inline">04492 921381</span>
+        </a>
+        <a href="#kontakt" class="hidden md:inline-flex lg:hidden 2xl:inline-flex whitespace-nowrap cursor-pointer rounded-full border-2 border-ink/15 px-5 py-2 text-sm font-bold text-ink transition-colors duration-200 hover:bg-ink hover:text-white hover:border-ink">
+          Beratung anfragen
+        </a>
+        <button id="burger" aria-label="Menü öffnen" class="lg:hidden cursor-pointer rounded-lg p-2 text-ink hover:bg-brandsoft transition-colors">
+          <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="mobile-menu hidden-menu fixed inset-0 z-[60] bg-white lg:hidden">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-line">
+      <img src="assets/logo/logo.svg" alt="Schulte Bauunternehmen Logo" class="h-11 w-auto" />
+      <button id="closeMenu" aria-label="Menü schließen" class="cursor-pointer rounded-lg p-2 hover:bg-brandsoft transition-colors">
+        <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="flex flex-col px-6 py-8 gap-6 text-xl font-heading font-semibold text-ink">
+      <a href="#leistungen" class="mob-link">Leistungen</a>
+      <a href="#energie" class="mob-link">Plus-Energiehaus</a>
+      <a href="#unternehmen" class="mob-link">Unternehmen</a>
+      <a href="#referenzen" class="mob-link">Referenzen</a>
+      <a href="#karriere" class="mob-link">Karriere</a>
+      <a href="#kontakt" class="mob-link">Kontakt</a>
+      <a href="tel:+494492921381" class="mob-link mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3.5 text-center text-lg font-bold text-white active:scale-95 transition">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        04492 921381 anrufen
+      </a>
+      <a href="#kontakt" class="mob-link inline-block rounded-full border-2 border-ink/15 px-6 py-3 text-center text-lg font-bold text-ink">Anfrage per Formular</a>
+    </nav>
+  </div>
+
+  <main>
+  <!-- ========================= HERO ========================= -->
+  <section id="top" class="relative pt-36 lg:pt-48 pb-20 overflow-hidden">
+    <div class="blob-anim pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-brand/20 blur-3xl"></div>
+    <div class="mx-auto max-w-7xl px-5 grid lg:grid-cols-2 gap-14 items-center relative">
+
+      <div class="reveal in">
+        <span class="inline-flex items-center gap-2 rounded-full bg-brandsoft px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-ink2">
+          <span class="h-2 w-2 rounded-full bg-brand"></span> Bauunternehmen · Saterland-Scharrel
+        </span>
+        <h1 class="font-heading mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-ink">
+          Wir bauen<br>Ihr <span class="relative inline-block">Zuhause.
+            <svg class="absolute -bottom-2 left-0 w-full" height="14" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 50 2, 150 2, 198 8" stroke="#D9822B" stroke-width="6" fill="none" stroke-linecap="round"/></svg>
+          </span>
+        </h1>
+        <p class="mt-7 max-w-lg text-lg leading-relaxed text-ink2">
+          Schlüsselfertiges Bauen, Rohbau, Sanierung und Modernisierung aus einer Hand —
+          mit über 25 Jahren Erfahrung und dem Know-how für energieeffiziente Häuser
+          bis zum Plus-Energiehaus. Im gesamten Nordwesten.
+        </p>
+        <div class="mt-9 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
+          <a href="#kontakt" class="inline-flex items-center justify-center gap-2.5 cursor-pointer rounded-full bg-brand px-7 py-4 text-base font-bold text-white shadow-lg shadow-brand/30 transition-all duration-200 hover:bg-branddark hover:-translate-y-0.5 active:scale-95">
+            Kostenlose Beratung anfragen
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="tel:+494492921381" class="inline-flex items-center justify-center gap-2 cursor-pointer rounded-full border-2 border-ink/15 px-7 py-4 text-base font-bold text-ink transition-colors duration-200 hover:bg-ink hover:text-white hover:border-ink active:scale-95">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            04492 921381
+          </a>
+        </div>
+        <div class="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold text-ink2">
+          <span class="flex items-center gap-2"><svg class="h-5 w-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Alles aus einer Hand</span>
+          <span class="flex items-center gap-2"><svg class="h-5 w-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Ein fester Ansprechpartner</span>
+          <span class="flex items-center gap-2"><svg class="h-5 w-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Energieeffizient gebaut</span>
+        </div>
+      </div>
+
+      <div class="reveal in d1 relative">
+        <div class="floaty ph overflow-hidden rounded-[2rem] border border-line shadow-2xl shadow-ink/15 aspect-[4/5]" data-label="Foto: fertiges Haus">
+          <img src="assets/img/hero.jpg" alt="Von Schulte Bauunternehmen gebautes Einfamilienhaus" class="h-full w-full object-cover" loading="eager" onerror="this.style.display='none'" />
+        </div>
+        <div class="absolute -bottom-6 -left-4 sm:-left-6 rounded-2xl bg-white px-6 py-4 shadow-xl border border-line">
+          <div class="font-heading text-3xl font-extrabold text-ink leading-none"><span data-count="25">0</span><span class="text-brand">+</span></div>
+          <div class="mt-1 text-xs font-semibold uppercase tracking-wide text-ink2">Jahre Erfahrung</div>
+        </div>
+        <div class="absolute -top-4 -right-2 sm:-right-4 rotate-3 rounded-2xl bg-brand px-5 py-3 shadow-xl">
+          <div class="font-heading text-sm font-bold text-white leading-tight">Vom ersten Stein<br>bis zum Schlüssel.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= EINBLICKE: ROHBAU -> FERTIG ========================= -->
+  <section id="einblicke" class="py-20 sm:py-28 bg-ink text-white overflow-hidden">
+    <div class="mx-auto max-w-7xl px-5 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <div class="reveal order-2 lg:order-1">
+        <span class="text-sm font-bold uppercase tracking-widest text-brand">Einblicke</span>
+        <h2 class="font-heading mt-2 text-3xl sm:text-4xl font-bold">Vom Rohbau zum Zuhause</h2>
+        <p class="mt-5 text-lg leading-relaxed text-white/70">
+          Wir begleiten Ihr Bauvorhaben von der ersten Idee über das Fundament bis zur Schlüsselübergabe.
+          Solide gemauert, sauber ausgeführt und auf Wunsch so effizient, dass Ihr Haus mehr Energie erzeugt, als es verbraucht.
+        </p>
+        <ul class="mt-7 space-y-3 text-base text-white/80">
+          <li class="flex items-center gap-3"><svg class="h-5 w-5 text-brand shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Planung, Rohbau und Ausbau koordiniert aus einer Hand</li>
+          <li class="flex items-center gap-3"><svg class="h-5 w-5 text-brand shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Erfahrene Handwerker und verlässliche Partner-Gewerke</li>
+          <li class="flex items-center gap-3"><svg class="h-5 w-5 text-brand shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Bauprojekte im Saterland und im ganzen Nordwesten</li>
+        </ul>
+        <a href="#kontakt" class="mt-9 inline-flex items-center justify-center gap-2.5 cursor-pointer rounded-full bg-brand px-7 py-3.5 text-base font-bold text-white transition-all duration-200 hover:bg-branddark active:scale-95">
+          Mein Bauvorhaben besprechen
+        </a>
+      </div>
+
+      <div class="reveal d1 order-1 lg:order-2 flex justify-center">
+        <div class="relative w-full max-w-[420px] aspect-[3/4] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl shadow-black/40 bg-black">
+          <!-- NACHHER: fertiges Haus -->
+          <div class="ph absolute inset-0" data-label="Foto: fertiges Haus">
+            <img src="assets/img/fertig.jpg" alt="Fertiges Haus nach Schlüsselübergabe" class="absolute inset-0 h-full w-full object-cover" onerror="this.style.display='none'" />
+          </div>
+          <!-- VORHER: Rohbau -->
+          <div class="ba-before absolute inset-0 z-[2]">
+            <div class="ph h-full w-full" data-label="Foto: Rohbau" style="background: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 14px, rgba(255,255,255,.02) 14px 28px), linear-gradient(160deg,#7A4A22,#4B2F17);">
+              <img src="assets/img/rohbau.jpg" alt="Dasselbe Haus im Rohbau" class="h-full w-full object-cover" onerror="this.style.display='none'" />
+            </div>
+          </div>
+          <div class="ba-divider"></div>
+          <span class="absolute top-4 left-4 z-10 rounded-full bg-black/55 backdrop-blur px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">Rohbau</span>
+          <span class="absolute top-4 right-4 z-10 rounded-full bg-brand px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">Fertig</span>
+          <div class="pointer-events-none absolute inset-x-0 bottom-0 z-[6] h-1/3 bg-gradient-to-t from-black/75 to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 z-10 p-4 text-center">
+            <p class="inline-block rounded-lg bg-black/55 px-3 py-1.5 text-sm font-semibold leading-snug text-white">
+              „Aus Stein wird Zuhause." 🏡
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= LEISTUNGEN ========================= -->
+  <section id="leistungen" class="py-20 sm:py-28 bg-brandsoft/60">
+    <div class="mx-auto max-w-7xl px-5">
+      <div class="reveal max-w-2xl">
+        <span class="text-sm font-bold uppercase tracking-widest text-branddark">Leistungsübersicht</span>
+        <h2 class="font-heading mt-2 text-3xl sm:text-4xl font-bold text-ink">Bauen aus einer Hand</h2>
+        <p class="mt-4 text-lg text-ink2">Vom Neubau über den Rohbau bis zur Sanierung — und alles rund ums energieeffiziente Haus. Klicken Sie auf ein <span class="font-semibold text-ink">+</span>, um mehr zu erfahren.</p>
+      </div>
+
+      <div class="mt-14 grid gap-6 md:grid-cols-2">
+
+        <!-- NEUBAU -->
+        <div class="svc-card reveal rounded-3xl bg-white border border-line p-7 shadow-sm">
+          <div class="flex items-center gap-3">
+            <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/15 text-branddark">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+            </span>
+            <h3 class="font-heading text-xl font-semibold text-ink">Neubau &amp; schlüsselfertig</h3>
+          </div>
+          <div class="mt-5 divide-y divide-line acc-group">
+            <div class="acc-item py-1">
+              <button class="acc-trigger w-full flex items-center justify-between gap-3 py-3 text-left cursor-pointer" aria-expanded="false">
+                <span class="font-heading text-sm font-semibold tracking-wide text-ink">SCHLÜSSELFERTIGES BAUEN</span>
+                <span class="acc-plus flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brandsoft text-ink2 text-lg leading-none">+</span>
+              </button>
+              <div class="acc-panel"><p class="pb-3 text-sm text-ink2">Ihr Haus komplett aus einer Hand: Wir koordinieren alle Gewerke — Sie haben einen festen Ansprechpartner bis zur Schlüsselübergabe.</p></div>
+            </div>
+            <div class="acc-item py-1">
+              <button class="acc-trigger w-full flex items-center justify-between gap-3 py-3 text-left cursor-pointer" aria-expanded="false">
+                <span class="font-heading text-sm font-semibold tracking-wide text-ink">EINFAMILIEN- &amp; DOPPELHÄUSER</span>
+                <span class="acc-plus flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brandsoft text-ink2 text-lg leading-none">+</span>
+              </button>
+              <div class="acc-panel"><p class="pb-3 text-sm text-ink2">Planung und Errichtung von Wohnhäusern, individuell nach Ihren Wünschen und Ihrem Budget.</p></div>
+            </div>
+            <div class="acc-item py-1">
+              <button class="acc-trigger w-full flex items-center justify-between gap-3 py-3 text-left cursor-pointer" aria-expanded="false">
+                <span class="font-heading text-sm font-semibold tracking-wide text-ink">PLANUNG &amp; BERATUNG</span>
+                <span class="acc-plus flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brandsoft text-ink2 text-lg leading-none">+</span>
+              </button>
+              <div class="acc-panel"><p class="pb-3 text-sm text-ink2">Von der ersten Skizze bis zur Baugenehmigung: Wir beraten Sie ehrlich und planen mit Blick auf Kosten und Energieeffizienz.</p></div>
+            </div>
+            <div class="acc-item py-1">
+              <button class="acc-trigger w-full flex items-center justify-between gap-3 py-3 text-left cursor-pointer" aria-expanded="false">
+                <span class="font-heading text-sm font-semibold tracking-wide text-ink">BAUPLÄTZE &amp; IMMOBILIEN</span>
+                <span class="acc-plus flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brandsoft text-ink2 text-lg leading-none">+</span>
+              </button>
+              <div class="acc-panel"><p class="pb-3 text-sm text-ink2">An- und Verkauf von Bauplätzen und Hausobjekten — sprechen Sie uns an, wenn Sie ein Grundstück suchen.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROHBAU -->
+        <div class="svc-card reveal d1 rounded-3xl bg-white border border-line p-7 shadow-sm">
+          <div class="flex items-center gap-3">
+            <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/15 text-branddark">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="9" height="5" rx="1"/><rect x="13" y="4" width="9" height="5" rx="1"/><rect x="2" y="11" width="5" height="5" rx="1"/><rect x="9" y="11" width="9" height="5" rx="1"/><rect x="20" y="11" width="2" height="5" rx="1"/><rect x="2" y="18" width="9" height="3" rx="1"/><rect x="13" y="18" width="9" height="3" rx="1"/></svg>
+            </span>
+            <h3 class="font-heading text-xl font-semibold text-ink">Rohbau &amp; Maurerarbeiten</h3>
+          </div>
+          <div class="mt-5 divide-y divide-line acc-group">
+            <div class="acc-item py-1">
+              <button class="acc-trigger w-full flex items-center justify-between gap-3 py-3 text-left cursor-pointer" aria-expanded="false">
+                <span class="font-heading text-sm font-semibold tracking-wide text-ink">MAURERARBEITEN</span>
+                <span class="acc-plus flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brandsoft text-ink2 text-lg leading-none">+</span>
+              </button>
+              <div class="acc-panel"><p class="pb-3 text-sm text-ink2">Sämtliche Maurerarbeiten — präzise, solide und termingerecht ausgeführt.</p></div>
+            </div>
+            <div class="acc-item py-1">
+              <button class="acc-trigger w-full flex items-center justify-between gap-3 py-3 text-left cursor-pointer" aria-expanded="false">
+                <span class="font-heading text-sm font-semibold tracking-wide text-ink">FUNDAMENT &amp; BODENPLATTE</span>
+                <span class="acc-plus flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brandsoft text-ink2 text-lg leading-none">+</span>
+              </button>
+              <div class="acc-panel"><p class="pb-3 text-sm text-ink2">Die richtige Grundlage für Ihr Haus: Gründung, Bodenplatte und Betonarbeiten.</p></div>
+            </div>
+            <div class="acc-item py-1">
+              <button class="acc-trigger w-full flex items-center justify-between gap-3 py-3 text-left cursor-pointer" aria-expanded="false">
+                <span class="font-heading text-sm font-semibold tracking-wide text-ink">KLINKER &amp; VERBLENDMAUERWERK</span>
+                <span class="acc-plus flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brandsoft text-ink2 text-lg leading-none">+</span>
+              </button>
+              <div class="acc-panel"><p class="pb-3 text-sm text-ink2">Typisch norddeutsch und langlebig: Klinkerfassaden, die jahrzehntelang schön bleiben.</p></div>
+            </div>
+            <div class="acc-item py-1">
+              <button class="acc-trigger w-full flex items-center justify-between gap-3 py-3 text-left cursor-pointer" aria-expanded="false">
+                <span class="font-heading text-sm font-semibold tracking-wide text-ink">ROHBAU FÜR IHR PROJEKT</span>
+                <span class="acc-plus flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brandsoft text-ink2 text-lg leading-none">+</span>
+              </button>
+              <div class="acc-panel"><p class="pb-3 text-sm text-ink2">Sie bauen in Eigenregie weiter? Wir erstellen Ihnen den Rohbau als verlässliche Basis.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BESTAND -->
+        <div class="svc-card reveal rounded-3xl bg-white border border-line p-7 shadow-sm">
+          <div class="flex items-center gap-3">
+            <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/15 text-branddark">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </span>
+            <h3 class="font-heading text-xl font-semibold text-ink">Bauen im Bestand</h3>
+          </div>
+          <div class="mt-5 divide-y divide-line acc-group">
+            <div class="acc-item py-1">
+              <button class="acc-trigger w-full flex items-center justify-between gap-3 py-3 text-left cursor-pointer" aria-expanded="false">
+                <span class="font-heading text-sm font-semibold tracking-wide text-ink">SANIERUNG</span>
+                <span class="acc-plus flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brandsoft text-ink2 text-lg leading-none">+</span>
+              </button>
+              <div class="acc-panel"><p class="pb-3 text-sm text-ink2">Wir bringen ältere Häuser wieder auf Stand — fachgerecht und mit Blick auf die vorhandene Bausubstanz.</p></div>
+            </div>
+            <div class="acc-item py-1">
+              <button class="acc-trigger w-full flex items-center justify-between gap-3 py-3 text-left cursor-pointer" aria-expanded="false">
+                <span class="font-heading text-sm font-semibold tracking-wide text-ink">MODERNISIERUNG</span>
+                <span class="acc-plus flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brandsoft text-ink2 text-lg leading-none">+</span>
+              </button>
+              <div class="acc-panel"><p class="pb-3 text-sm text-ink2">Mehr Wohnkomfort und geringere Energiekosten durch gezielte Modernisierung.</p></div>
+            </div>
+            <div class="acc-item py-1">
+              <button class="acc-trigger w-full flex items-center justify-between gap-3 py-3 text-left cursor-pointer" aria-expanded="false">
+                <span class="font-heading text-sm font-semibold tracking-wide text-ink">UMBAU &amp; ANBAU</span>
+                <span class="acc-plus flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brandsoft text-ink2 text-lg leading-none">+</span>
+              </button>
+              <div class="acc-panel"><p class="pb-3 text-sm text-ink2">Mehr Platz für die Familie: Wir planen und bauen Anbauten und Umbauten passend zum Bestand.</p></div>
+            </div>
+            <div class="acc-item py-1">
+              <button class="acc-trigger w-full flex items-center justify-between gap-3 py-3 text-left cursor-pointer" aria-expanded="false">
+                <span class="font-heading text-sm font-semibold tracking-wide text-ink">ENERGETISCHE SANIERUNG</span>
+                <span class="acc-plus flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brandsoft text-ink2 text-lg leading-none">+</span>
+              </button>
+              <div class="acc-panel"><p class="pb-3 text-sm text-ink2">Dämmung, moderne Haustechnik und erneuerbare Energien — damit auch Ihr Bestandshaus zukunftsfähig wird.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ENERGIE -->
+        <div class="svc-card reveal d1 rounded-3xl bg-white border border-line p-7 shadow-sm">
+          <div class="flex items-center gap-3">
+            <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/15 text-branddark">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            </span>
+            <h3 class="font-heading text-xl font-semibold text-ink">Energie &amp; Zukunft</h3>
+          </div>
+          <div class="mt-5 divide-y divide-line acc-group">
+            <div class="acc-item py-1">
+              <button class="acc-trigger w-full flex items-center justify-between gap-3 py-3 text-left cursor-pointer" aria-expanded="false">
+                <span class="font-heading text-sm font-semibold tracking-wide text-ink">PLUS-ENERGIEHAUS</span>
+                <span class="acc-plus flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brandsoft text-ink2 text-lg leading-none">+</span>
+              </button>
+              <div class="acc-panel"><p class="pb-3 text-sm text-ink2">Ein Haus, das mehr Energie erzeugt, als es verbraucht — geplant und gebaut von uns.</p></div>
+            </div>
+            <div class="acc-item py-1">
+              <button class="acc-trigger w-full flex items-center justify-between gap-3 py-3 text-left cursor-pointer" aria-expanded="false">
+                <span class="font-heading text-sm font-semibold tracking-wide text-ink">PHOTOVOLTAIK</span>
+                <span class="acc-plus flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brandsoft text-ink2 text-lg leading-none">+</span>
+              </button>
+              <div class="acc-panel"><p class="pb-3 text-sm text-ink2">Großflächige PV-Anlagen auf dem Dach, optimal zur Sonne ausgerichtet, für eigenen Solarstrom.</p></div>
+            </div>
+            <div class="acc-item py-1">
+              <button class="acc-trigger w-full flex items-center justify-between gap-3 py-3 text-left cursor-pointer" aria-expanded="false">
+                <span class="font-heading text-sm font-semibold tracking-wide text-ink">ERDWÄRMEPUMPE</span>
+                <span class="acc-plus flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brandsoft text-ink2 text-lg leading-none">+</span>
+              </button>
+              <div class="acc-panel"><p class="pb-3 text-sm text-ink2">Heizen mit der Wärme aus dem Erdreich — effizient, leise und unabhängig von Öl und Gas.</p></div>
+            </div>
+            <div class="acc-item py-1">
+              <button class="acc-trigger w-full flex items-center justify-between gap-3 py-3 text-left cursor-pointer" aria-expanded="false">
+                <span class="font-heading text-sm font-semibold tracking-wide text-ink">E-MOBILITÄT &amp; WALLBOX</span>
+                <span class="acc-plus flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brandsoft text-ink2 text-lg leading-none">+</span>
+              </button>
+              <div class="acc-panel"><p class="pb-3 text-sm text-ink2">Die Ladestation direkt am Stellplatz: So tanken Sie Ihr E-Auto mit kostenlosem Sonnenstrom vom eigenen Dach.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal mt-12 text-center">
+        <a href="#kontakt" class="group inline-flex items-center gap-3 cursor-pointer rounded-full bg-ink px-9 py-4 text-base font-bold uppercase tracking-wide text-white transition-all duration-200 hover:bg-brand hover:-translate-y-0.5">
+          Bauvorhaben anfragen
+          <svg class="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= ABLAUF ========================= -->
+  <section id="ablauf" class="py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-5">
+      <div class="reveal text-center max-w-2xl mx-auto">
+        <span class="text-sm font-bold uppercase tracking-widest text-branddark">So bauen wir</span>
+        <h2 class="font-heading mt-2 text-3xl sm:text-4xl font-bold text-ink">In vier Schritten zum eigenen Haus</h2>
+        <p class="mt-4 text-lg text-ink2">Klare Abläufe, ein fester Ansprechpartner und keine bösen Überraschungen.</p>
+      </div>
+      <ol class="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 relative">
+        <li class="reveal relative">
+          <div class="flex items-center gap-4">
+            <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand font-heading text-xl font-extrabold text-white shadow-lg shadow-brand/30">1</span>
+            <span class="step-line hidden lg:block h-[2px] flex-1"></span>
+          </div>
+          <h3 class="mt-5 font-heading text-lg font-semibold text-ink">Kennenlernen &amp; Beratung</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink2">Wir hören zu: Wünsche, Grundstück, Budget. Die Erstberatung ist kostenlos und unverbindlich.</p>
+        </li>
+        <li class="reveal d1 relative">
+          <div class="flex items-center gap-4">
+            <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand font-heading text-xl font-extrabold text-white shadow-lg shadow-brand/30">2</span>
+            <span class="step-line hidden lg:block h-[2px] flex-1"></span>
+          </div>
+          <h3 class="mt-5 font-heading text-lg font-semibold text-ink">Planung &amp; Angebot</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink2">Entwurf, Energiekonzept und ein transparentes Angebot — bis zur Baugenehmigung.</p>
+        </li>
+        <li class="reveal d2 relative">
+          <div class="flex items-center gap-4">
+            <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand font-heading text-xl font-extrabold text-white shadow-lg shadow-brand/30">3</span>
+            <span class="step-line hidden lg:block h-[2px] flex-1"></span>
+          </div>
+          <h3 class="mt-5 font-heading text-lg font-semibold text-ink">Bauphase</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink2">Fundament, Rohbau, Ausbau: Wir koordinieren alle Gewerke und halten Sie laufend auf dem Stand.</p>
+        </li>
+        <li class="reveal d3 relative">
+          <div class="flex items-center gap-4">
+            <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-ink font-heading text-xl font-extrabold text-white">
+              <svg class="h-6 w-6 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>
+            </span>
+          </div>
+          <h3 class="mt-5 font-heading text-lg font-semibold text-ink">Schlüsselübergabe</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink2">Gemeinsame Abnahme, Übergabe — und Sie ziehen in Ihr neues Zuhause ein.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========================= PLUS-ENERGIEHAUS ========================= -->
+  <section id="energie" class="py-20 sm:py-28 bg-ink text-white overflow-hidden">
+    <div class="mx-auto max-w-7xl px-5 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="reveal relative">
+        <div class="ph overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl shadow-black/40 aspect-[4/3]" data-label="Foto: Haus mit Photovoltaik">
+          <img src="assets/img/plusenergiehaus.jpg" alt="Plus-Energiehaus mit Photovoltaik-Anlage auf dem Dach" class="h-full w-full object-cover" loading="lazy" onerror="this.style.display='none'" />
+        </div>
+        <div class="absolute -bottom-6 right-4 sm:right-6 rounded-2xl bg-brand px-6 py-4 shadow-xl">
+          <div class="font-heading text-2xl font-extrabold leading-none text-white">+3.200 kWh</div>
+          <div class="mt-1 text-xs font-semibold uppercase tracking-wide text-white/85">Solarstrom-Überschuss / Jahr möglich*</div>
+        </div>
+      </div>
+      <div class="reveal d1">
+        <span class="text-sm font-bold uppercase tracking-widest text-brand">Plus-Energiehaus</span>
+        <h2 class="font-heading mt-2 text-3xl sm:text-4xl font-bold">Ein Haus, das mehr Energie erzeugt, als es verbraucht</h2>
+        <p class="mt-5 text-lg leading-relaxed text-white/70">
+          Ein Plus-Energiehaus wird möglichst nach Süden ausgerichtet, um die Sonne optimal zu nutzen.
+          Eine großflächige Photovoltaik-Anlage auf dem Dach erzeugt pro Jahr rund
+          <strong class="text-white">1.200 bis 3.200 kWh mehr Solarstrom</strong>, als Sie selbst verbrauchen.
+        </p>
+        <div class="mt-8 grid sm:grid-cols-3 gap-4">
+          <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+            <svg class="h-7 w-7 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="10" rx="1"/><path d="M2 12h20M8 7v10M14 7v10"/></svg>
+            <h3 class="mt-3 font-heading font-semibold">Photovoltaik</h3>
+            <p class="mt-1 text-sm text-white/60">Eigener Strom vom Dach.</p>
+          </div>
+          <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+            <svg class="h-7 w-7 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
+            <h3 class="mt-3 font-heading font-semibold">Erdwärme</h3>
+            <p class="mt-1 text-sm text-white/60">Heizen ohne Öl &amp; Gas.</p>
+          </div>
+          <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+            <svg class="h-7 w-7 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <h3 class="mt-3 font-heading font-semibold">E-Mobilität</h3>
+            <p class="mt-1 text-sm text-white/60">Auto laden mit Sonnenstrom.</p>
+          </div>
+        </div>
+        <p class="mt-5 text-xs text-white/45">* abhängig von Dachfläche, Ausrichtung und Verbrauch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= UNTERNEHMEN ========================= -->
+  <section id="unternehmen" class="py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-5 grid lg:grid-cols-2 gap-14 items-center">
+      <div class="reveal relative lg:order-2">
+        <div class="ph overflow-hidden rounded-[2rem] border border-line shadow-2xl shadow-ink/10 aspect-[4/3]" data-label="Foto: Ulrich Schulte / Team">
+          <img src="assets/img/unternehmen.jpg" alt="Ulrich Schulte und Team auf der Baustelle" class="h-full w-full object-cover" loading="lazy" onerror="this.style.display='none'" />
+        </div>
+        <span class="absolute -bottom-5 left-6 rounded-2xl bg-brand px-6 py-4 shadow-xl font-heading font-bold text-white">über 25 Jahre</span>
+      </div>
+
+      <div class="reveal d1 lg:order-1">
+        <span class="text-sm font-bold uppercase tracking-widest text-branddark">Das Unternehmen</span>
+        <h2 class="font-heading mt-2 text-3xl sm:text-4xl font-bold text-ink">Solides Handwerk,<br class="hidden sm:block"> zukunftsfähig gebaut</h2>
+        <p class="mt-6 text-lg leading-relaxed text-ink2">
+          Die <strong class="text-ink">U. Schulte Bauunternehmung GmbH</strong> aus Saterland-Scharrel plant und baut
+          energieeffiziente Häuser. Geschäftsführer <strong class="text-ink">Ulrich Schulte</strong> verbindet solides
+          Maurerhandwerk mit umfassender Erfahrung im Bereich erneuerbarer Energien.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-ink2">
+          Ob schlüsselfertiges Einfamilienhaus, Rohbau oder die Sanierung eines Bestandsgebäudes:
+          Seit über 25 Jahren setzen wir Bauprojekte im Nordwesten zuverlässig um — mit kurzen Wegen
+          und einem Ansprechpartner, der Ihr Projekt von Anfang bis Ende kennt.
+        </p>
+
+        <div class="mt-8 grid sm:grid-cols-3 gap-5">
+          <div class="rounded-2xl bg-brandsoft p-5">
+            <svg class="h-7 w-7 text-branddark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <h3 class="mt-3 font-heading font-semibold text-ink">Solide</h3>
+            <p class="mt-1 text-sm text-ink2">Massiv gebaut für Generationen.</p>
+          </div>
+          <div class="rounded-2xl bg-brandsoft p-5">
+            <svg class="h-7 w-7 text-branddark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>
+            <h3 class="mt-3 font-heading font-semibold text-ink">Persönlich</h3>
+            <p class="mt-1 text-sm text-ink2">Ein fester Ansprechpartner.</p>
+          </div>
+          <div class="rounded-2xl bg-brandsoft p-5">
+            <svg class="h-7 w-7 text-branddark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            <h3 class="mt-3 font-heading font-semibold text-ink">Zukunftsfähig</h3>
+            <p class="mt-1 text-sm text-ink2">Effizient bis zum Plus-Energiehaus.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= REFERENZEN ========================= -->
+  <section id="referenzen" class="py-20 sm:py-28 bg-ink text-white">
+    <div class="mx-auto max-w-7xl px-5">
+      <div class="reveal text-center max-w-2xl mx-auto">
+        <span class="text-sm font-bold uppercase tracking-widest text-brand">Referenzen</span>
+        <h2 class="font-heading mt-2 text-3xl sm:text-4xl font-bold">Gebaut von Schulte</h2>
+        <p class="mt-4 text-lg text-white/70">Ein Auszug aus unseren abgeschlossenen Bauprojekten.</p>
+      </div>
+
+      <div id="gallery" class="mt-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+        <button class="gal-item ph reveal group relative overflow-hidden rounded-2xl aspect-square cursor-pointer" data-label="Referenz 1" data-src="assets/img/ref1.jpg"><img src="assets/img/ref1.jpg" alt="Referenzprojekt 1" loading="lazy" class="h-full w-full object-cover" onerror="this.style.display='none'"><span class="absolute inset-0 z-[2] bg-ink/0 group-hover:bg-ink/20 transition-colors"></span></button>
+        <button class="gal-item ph reveal d1 group relative overflow-hidden rounded-2xl aspect-square cursor-pointer" data-label="Referenz 2" data-src="assets/img/ref2.jpg"><img src="assets/img/ref2.jpg" alt="Referenzprojekt 2" loading="lazy" class="h-full w-full object-cover" onerror="this.style.display='none'"><span class="absolute inset-0 z-[2] bg-ink/0 group-hover:bg-ink/20 transition-colors"></span></button>
+        <button class="gal-item ph reveal d2 group relative overflow-hidden rounded-2xl aspect-square cursor-pointer" data-label="Referenz 3" data-src="assets/img/ref3.jpg"><img src="assets/img/ref3.jpg" alt="Referenzprojekt 3" loading="lazy" class="h-full w-full object-cover" onerror="this.style.display='none'"><span class="absolute inset-0 z-[2] bg-ink/0 group-hover:bg-ink/20 transition-colors"></span></button>
+        <button class="gal-item ph reveal d3 group relative overflow-hidden rounded-2xl aspect-square cursor-pointer" data-label="Referenz 4" data-src="assets/img/ref4.jpg"><img src="assets/img/ref4.jpg" alt="Referenzprojekt 4" loading="lazy" class="h-full w-full object-cover" onerror="this.style.display='none'"><span class="absolute inset-0 z-[2] bg-ink/0 group-hover:bg-ink/20 transition-colors"></span></button>
+        <button class="gal-item ph reveal group relative overflow-hidden rounded-2xl aspect-square cursor-pointer" data-label="Referenz 5" data-src="assets/img/ref5.jpg"><img src="assets/img/ref5.jpg" alt="Referenzprojekt 5" loading="lazy" class="h-full w-full object-cover" onerror="this.style.display='none'"><span class="absolute inset-0 z-[2] bg-ink/0 group-hover:bg-ink/20 transition-colors"></span></button>
+        <button class="gal-item ph reveal d1 group relative overflow-hidden rounded-2xl aspect-square cursor-pointer" data-label="Referenz 6" data-src="assets/img/ref6.jpg"><img src="assets/img/ref6.jpg" alt="Referenzprojekt 6" loading="lazy" class="h-full w-full object-cover" onerror="this.style.display='none'"><span class="absolute inset-0 z-[2] bg-ink/0 group-hover:bg-ink/20 transition-colors"></span></button>
+        <button class="gal-item ph reveal d2 group relative overflow-hidden rounded-2xl aspect-square cursor-pointer" data-label="Referenz 7" data-src="assets/img/ref7.jpg"><img src="assets/img/ref7.jpg" alt="Referenzprojekt 7" loading="lazy" class="h-full w-full object-cover" onerror="this.style.display='none'"><span class="absolute inset-0 z-[2] bg-ink/0 group-hover:bg-ink/20 transition-colors"></span></button>
+        <button class="gal-item ph reveal d3 group relative overflow-hidden rounded-2xl aspect-square cursor-pointer" data-label="Referenz 8" data-src="assets/img/ref8.jpg"><img src="assets/img/ref8.jpg" alt="Referenzprojekt 8" loading="lazy" class="h-full w-full object-cover" onerror="this.style.display='none'"><span class="absolute inset-0 z-[2] bg-ink/0 group-hover:bg-ink/20 transition-colors"></span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 z-[90] hidden items-center justify-center bg-ink/90 backdrop-blur-sm p-6 cursor-zoom-out">
+    <button id="lightboxClose" aria-label="Schließen" class="absolute top-5 right-5 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition-colors cursor-pointer"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <img id="lightboxImg" src="" alt="Vergrößerte Referenz" class="max-h-[88vh] max-w-[92vw] rounded-xl shadow-2xl object-contain" />
+  </div>
+
+  <!-- ========================= CTA-BAND ========================= -->
+  <section class="bg-brand">
+    <div class="mx-auto max-w-5xl px-5 py-14 sm:py-16 text-center">
+      <h2 class="reveal font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white">
+        Bereit für Ihr eigenes Haus?
+      </h2>
+      <p class="reveal d1 mt-3 text-base sm:text-lg font-semibold text-white/90">
+        Kostenlose, unverbindliche Erstberatung — rufen Sie uns einfach an.
+      </p>
+      <div class="reveal d2 mt-7 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
+        <a href="tel:+494492921381" class="inline-flex items-center justify-center gap-2.5 cursor-pointer rounded-full bg-ink px-7 py-4 text-base font-bold text-white transition-all duration-200 hover:bg-ink2 active:scale-95">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          04492 921381
+        </a>
+        <a href="mailto:info@schultebau.net" class="inline-flex items-center justify-center gap-2.5 cursor-pointer rounded-full border-2 border-white/60 px-7 py-4 text-base font-bold text-white transition-colors duration-200 hover:bg-white hover:text-ink hover:border-white active:scale-95">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          info@schultebau.net
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= KONTAKT ========================= -->
+  <section id="kontakt" class="py-20 sm:py-28 bg-brandsoft/60">
+    <div class="mx-auto max-w-7xl px-5">
+      <div class="reveal text-center max-w-2xl mx-auto">
+        <span class="text-sm font-bold uppercase tracking-widest text-branddark">Kontakt</span>
+        <h2 class="font-heading mt-2 text-3xl sm:text-4xl font-bold text-ink">Lassen Sie uns über Ihr Bauvorhaben sprechen</h2>
+        <p class="mt-4 text-lg text-ink2">Kostenlose Erstberatung — wir freuen uns auf Ihre Anfrage.</p>
+      </div>
+
+      <div class="mt-12 grid gap-8 lg:grid-cols-5">
+        <!-- Formular (Netlify Forms) -->
+        <form name="kontakt" method="POST" action="/danke.html" data-netlify="true" netlify-honeypot="bot-field" class="reveal lg:col-span-3 rounded-3xl bg-white border border-line p-7 sm:p-9 shadow-sm">
+          <input type="hidden" name="form-name" value="kontakt" />
+          <p class="hidden"><label>Nicht ausfüllen: <input name="bot-field" /></label></p>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="c-name" class="block text-sm font-semibold text-ink mb-1.5">Name *</label>
+              <input id="c-name" name="name" type="text" required autocomplete="name" class="field" placeholder="Ihr Name" />
+            </div>
+            <div>
+              <label for="c-phone" class="block text-sm font-semibold text-ink mb-1.5">Telefon</label>
+              <input id="c-phone" name="telefon" type="tel" autocomplete="tel" class="field" placeholder="Für Rückfragen" />
+            </div>
+          </div>
+          <div class="mt-5">
+            <label for="c-email" class="block text-sm font-semibold text-ink mb-1.5">E-Mail *</label>
+            <input id="c-email" name="email" type="email" required autocomplete="email" class="field" placeholder="name@email.de" />
+          </div>
+          <div class="mt-5">
+            <label for="c-subject" class="block text-sm font-semibold text-ink mb-1.5">Worum geht es?</label>
+            <select id="c-subject" name="anliegen" class="field">
+              <option>Neubau / schlüsselfertiges Haus</option>
+              <option>Rohbau / Maurerarbeiten</option>
+              <option>Sanierung / Modernisierung / Anbau</option>
+              <option>Plus-Energiehaus / PV / Erdwärme</option>
+              <option>Bauplatz / Immobilie</option>
+              <option>Sonstiges</option>
+            </select>
+          </div>
+          <div class="mt-5">
+            <label for="c-message" class="block text-sm font-semibold text-ink mb-1.5">Ihre Nachricht *</label>
+            <textarea id="c-message" name="nachricht" rows="4" required class="field" placeholder="Beschreiben Sie kurz Ihr Vorhaben (Ort, Grundstück, Zeitraum …)"></textarea>
+          </div>
+          <label class="mt-4 flex items-start gap-2.5 text-sm text-ink2">
+            <input type="checkbox" name="datenschutz" value="akzeptiert" required class="mt-1 h-4 w-4 rounded border-line accent-brand" />
+            <span>Ich habe die <a href="datenschutz.html" class="underline decoration-brand/60 hover:decoration-brand">Datenschutzhinweise</a> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung der Anfrage zu. *</span>
+          </label>
+          <button type="submit" class="mt-6 w-full sm:w-auto cursor-pointer rounded-full bg-brand px-8 py-3.5 font-bold text-white transition-colors duration-200 hover:bg-branddark">
+            Nachricht senden
+          </button>
+        </form>
+
+        <!-- Info + Karte -->
+        <div class="reveal d1 lg:col-span-2 flex flex-col gap-6">
+          <div class="rounded-3xl bg-ink text-white p-7">
+            <h3 class="font-heading text-lg font-semibold">Direkt erreichbar</h3>
+            <div class="mt-5 space-y-4 text-sm">
+              <p class="flex gap-3"><svg class="h-5 w-5 shrink-0 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>U. Schulte Bauunternehmung GmbH<br>Eisenbahnstraße 5a<br>26683 Saterland-Scharrel</span></p>
+              <p class="flex gap-3"><svg class="h-5 w-5 shrink-0 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>Tel.: <a href="tel:+494492921381" class="underline decoration-brand/50 hover:decoration-brand">04492 921381</a><br>Mobil: <a href="tel:+491732023620" class="underline decoration-brand/50 hover:decoration-brand">0173 2023620</a><br>Fax: 04492 921382</span></p>
+              <p class="flex gap-3"><svg class="h-5 w-5 shrink-0 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> <a href="mailto:info@schultebau.net" class="underline decoration-brand/50 hover:decoration-brand">info@schultebau.net</a></p>
+            </div>
+          </div>
+          <!-- Karte: lädt Google Maps erst nach Klick (Datenschutz) -->
+          <div id="mapBox" class="relative overflow-hidden rounded-3xl border border-line grow min-h-[240px] bg-white">
+            <div id="mapConsent" class="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center" style="background: repeating-linear-gradient(0deg, transparent 0 38px, #ECE6DE 38px 39px), repeating-linear-gradient(90deg, transparent 0 38px, #ECE6DE 38px 39px), #FBF3EA;">
+              <svg class="h-9 w-9 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+              <p class="text-sm text-ink2 max-w-xs">Mit dem Laden der Karte werden Daten an Google übertragen.</p>
+              <button id="mapLoad" type="button" class="cursor-pointer rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-white hover:bg-brand transition-colors">Karte anzeigen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= KARRIERE ========================= -->
+  <section id="karriere" class="py-20 sm:py-28">
+    <div class="mx-auto max-w-5xl px-5">
+      <div class="reveal text-center max-w-2xl mx-auto">
+        <span class="text-sm font-bold uppercase tracking-widest text-branddark">Karriere</span>
+        <h2 class="font-heading mt-2 text-3xl sm:text-4xl font-bold text-ink">Bau mit uns — werde Teil des Teams</h2>
+        <p class="mt-4 text-lg text-ink2">Du bist Maurer/in, Bauhelfer/in oder möchtest eine Ausbildung am Bau starten? Bewirb dich direkt online — gern auch ganz formlos.</p>
+      </div>
+
+      <form name="bewerbung" method="POST" action="/danke.html" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field" class="reveal mt-12 rounded-3xl bg-white border border-line p-7 sm:p-10 shadow-sm">
+        <input type="hidden" name="form-name" value="bewerbung" />
+        <p class="hidden"><label>Nicht ausfüllen: <input name="bot-field" /></label></p>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="j-name" class="block text-sm font-semibold text-ink mb-1.5">Vor- &amp; Nachname *</label>
+            <input id="j-name" name="name" type="text" required autocomplete="name" class="field" placeholder="Dein Name" />
+          </div>
+          <div>
+            <label for="j-position" class="block text-sm font-semibold text-ink mb-1.5">Position</label>
+            <select id="j-position" name="position" class="field">
+              <option>Maurer/in</option>
+              <option>Bauhelfer/in</option>
+              <option>Ausbildung Maurer/in</option>
+              <option>Praktikum</option>
+              <option>Initiativbewerbung</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-5 mt-5">
+          <div>
+            <label for="j-email" class="block text-sm font-semibold text-ink mb-1.5">E-Mail *</label>
+            <input id="j-email" name="email" type="email" required autocomplete="email" class="field" placeholder="name@email.de" />
+          </div>
+          <div>
+            <label for="j-phone" class="block text-sm font-semibold text-ink mb-1.5">Telefon</label>
+            <input id="j-phone" name="telefon" type="tel" autocomplete="tel" class="field" placeholder="Optional" />
+          </div>
+        </div>
+        <div class="mt-5">
+          <label for="j-message" class="block text-sm font-semibold text-ink mb-1.5">Über dich</label>
+          <textarea id="j-message" name="nachricht" rows="4" class="field" placeholder="Erzähl uns kurz etwas über dich …"></textarea>
+        </div>
+
+        <div class="mt-5">
+          <span class="block text-sm font-semibold text-ink mb-1.5">Lebenslauf / Unterlagen (PDF, JPG, PNG)</span>
+          <label id="dropzone" for="j-file" class="flex flex-col items-center justify-center gap-2 cursor-pointer rounded-2xl border-2 border-dashed border-line bg-brandsoft/40 px-6 py-8 text-center transition-colors hover:border-brand hover:bg-brandsoft">
+            <svg class="h-9 w-9 text-branddark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <span id="fileLabel" class="text-sm font-semibold text-ink">Datei auswählen oder hierher ziehen</span>
+            <span class="text-xs text-ink2">eine Datei, max. 8 MB</span>
+            <input id="j-file" name="unterlagen" type="file" accept=".pdf,.jpg,.jpeg,.png" class="sr-only" />
+          </label>
+        </div>
+
+        <label class="mt-5 flex items-start gap-2.5 text-sm text-ink2">
+          <input type="checkbox" name="datenschutz" value="akzeptiert" required class="mt-1 h-4 w-4 rounded border-line accent-brand" />
+          <span>Ich bin mit der Speicherung meiner Bewerbungsdaten gemäß <a href="datenschutz.html" class="underline decoration-brand/60 hover:decoration-brand">Datenschutzhinweisen</a> einverstanden. *</span>
+        </label>
+        <button type="submit" class="mt-6 w-full sm:w-auto cursor-pointer rounded-full bg-ink px-8 py-3.5 font-bold text-white transition-colors duration-200 hover:bg-brand">
+          Bewerbung absenden
+        </button>
+      </form>
+    </div>
+  </section>
+  </main>
+
+  <!-- ========================= FOOTER ========================= -->
+  <footer class="bg-ink text-white/70">
+    <div class="h-1.5 w-full bg-brand"></div>
+    <div class="mx-auto max-w-7xl px-5 py-14 grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+      <div class="sm:col-span-2 md:col-span-1">
+        <span class="font-heading text-xl font-bold text-white">Schulte<br>Bauunternehmen</span>
+        <p class="mt-3 text-sm">Wir bauen Ihr Zuhause.<br>Aus Saterland-Scharrel für den Nordwesten.</p>
+      </div>
+      <div>
+        <h4 class="font-heading text-sm font-semibold uppercase tracking-wide text-white">Leistungen</h4>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="#leistungen" class="hover:text-brand transition-colors">Neubau &amp; schlüsselfertig</a></li>
+          <li><a href="#leistungen" class="hover:text-brand transition-colors">Rohbau &amp; Maurerarbeiten</a></li>
+          <li><a href="#leistungen" class="hover:text-brand transition-colors">Sanierung &amp; Modernisierung</a></li>
+          <li><a href="#energie" class="hover:text-brand transition-colors">Plus-Energiehaus</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-heading text-sm font-semibold uppercase tracking-wide text-white">Unternehmen</h4>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="#unternehmen" class="hover:text-brand transition-colors">Über uns</a></li>
+          <li><a href="#ablauf" class="hover:text-brand transition-colors">So bauen wir</a></li>
+          <li><a href="#referenzen" class="hover:text-brand transition-colors">Referenzen</a></li>
+          <li><a href="#karriere" class="hover:text-brand transition-colors">Karriere</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-heading text-sm font-semibold uppercase tracking-wide text-white">Kontakt</h4>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>Eisenbahnstraße 5a, 26683 Saterland-Scharrel</li>
+          <li><a href="tel:+494492921381" class="hover:text-brand transition-colors">04492 921381</a></li>
+          <li><a href="mailto:info@schultebau.net" class="hover:text-brand transition-colors">info@schultebau.net</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mx-auto max-w-7xl px-5 py-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs">
+      <p>© <span id="year">2026</span> U. Schulte Bauunternehmung GmbH. Alle Rechte vorbehalten.</p>
+      <div class="flex gap-5"><a href="impressum.html" class="hover:text-brand transition-colors">Impressum</a><a href="datenschutz.html" class="hover:text-brand transition-colors">Datenschutz</a></div>
+    </div>
+  </footer>
+
+  <!-- ===== Sticky CTA (mobil) ===== -->
+  <div class="lg:hidden fixed inset-x-0 bottom-0 z-[75] flex border-t border-line bg-white/95 backdrop-blur shadow-[0_-8px_30px_rgba(31,36,40,.10)]">
+    <a href="tel:+494492921381" class="flex flex-1 items-center justify-center gap-2 bg-brand py-4 text-base font-bold text-white active:scale-95 transition">
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Anrufen
+    </a>
+    <a href="#kontakt" class="flex flex-1 items-center justify-center gap-2 bg-ink py-4 text-base font-bold text-white active:scale-95 transition">
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      Anfrage
+    </a>
+  </div>
+
+  <!-- ========================= CHATBOT ========================= -->
+  <div class="pointer-events-none fixed bottom-24 right-4 lg:bottom-5 lg:right-5 z-[80] flex flex-col items-end gap-3">
+    <div id="chatPanel" class="chat-panel closed pointer-events-auto w-[clamp(280px,90vw,360px)] overflow-hidden rounded-2xl bg-white shadow-2xl border border-line" role="dialog" aria-label="Chat mit Schulte Bauunternehmen">
+      <div class="flex items-center gap-3 bg-ink px-4 py-3 text-white">
+        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-brand text-white font-heading font-bold">SB</span>
+        <div class="leading-tight">
+          <p class="font-heading text-sm font-semibold">Chat-Bot von Schulte Bau</p>
+          <p class="text-[11px] text-white/60 flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-brand"></span> Online · antwortet sofort</p>
+        </div>
+        <button id="chatClose" aria-label="Chat schließen" class="ml-auto cursor-pointer rounded-lg p-1.5 hover:bg-white/10 transition-colors"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+      <div id="chatBody" class="h-72 overflow-y-auto px-4 py-4 space-y-3 bg-brandsoft/40" aria-live="polite"></div>
+      <div id="chatQuick" class="flex flex-wrap gap-2 px-4 pb-2"></div>
+      <form id="chatForm" class="flex items-center gap-2 border-t border-line p-3">
+        <input id="chatInput" type="text" autocomplete="off" placeholder="Ihre Frage …" aria-label="Ihre Frage" class="flex-1 rounded-full border border-line bg-white px-4 py-2.5 text-sm focus:border-brand focus:outline-none" />
+        <button type="submit" aria-label="Senden" class="cursor-pointer rounded-full bg-brand p-2.5 text-white hover:bg-branddark transition-colors"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+      </form>
+    </div>
+    <button id="chatToggle" aria-label="Chat öffnen" class="pointer-events-auto relative cursor-pointer">
+      <span class="pulse-ring absolute inset-0 rounded-full bg-brand"></span>
+      <span class="relative flex h-[60px] w-[60px] items-center justify-center rounded-full bg-brand text-white shadow-xl transition-transform hover:scale-105">
+        <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </span>
+    </button>
+  </div>
+
+  <style>
+    .field { width:100%; border-radius:.85rem; border:1px solid #ECE6DE; background:#fff; padding:.7rem .9rem; font-size:.95rem; color:#1F2428; transition: border-color .2s ease, box-shadow .2s ease; }
+    .field:focus { outline:none; border-color:#D9822B; box-shadow:0 0 0 3px rgba(217,130,43,.25); }
+    .field::placeholder { color:#9a9fa3; }
+  </style>
+
+  <!-- ========================= SCRIPTS ========================= -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ---- Header scroll state ----
+    const header = document.getElementById('header');
+    const onScrollHeader = () => header.classList.toggle('scrolled', window.scrollY > 20);
+    window.addEventListener('scroll', onScrollHeader, { passive: true }); onScrollHeader();
+
+    // ---- Mobile menu ----
+    const mm = document.getElementById('mobileMenu');
+    const openMM = () => mm.classList.remove('hidden-menu');
+    const closeMM = () => mm.classList.add('hidden-menu');
+    document.getElementById('burger').addEventListener('click', openMM);
+    document.getElementById('closeMenu').addEventListener('click', closeMM);
+    document.querySelectorAll('.mob-link').forEach(a => a.addEventListener('click', closeMM));
+
+    // ---- Scroll reveal ----
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ---- Count-up ----
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target, target = +el.dataset.count;
+        cio.unobserve(el);
+        if (reduceMotion) { el.textContent = target; return; }
+        const dur = 2400, start = performance.now();
+        const step = (now) => {
+          const p = Math.min((now - start) / dur, 1);
+          el.textContent = Math.round(p * target);
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+
+    // ---- Active nav link on scroll ----
+    const navlinks = [...document.querySelectorAll('header .navlink')];
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) navlinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    navlinks.forEach(l => { const el = document.querySelector(l.getAttribute('href')); if (el) spy.observe(el); });
+
+    // ---- Accordion (Leistungen) ----
+    document.querySelectorAll('.acc-trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.acc-item');
+        const group = item.closest('.acc-group');
+        const wasOpen = item.classList.contains('open');
+        group.querySelectorAll('.acc-item.open').forEach(o => { o.classList.remove('open'); o.querySelector('.acc-trigger').setAttribute('aria-expanded', 'false'); });
+        if (!wasOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+      });
+    });
+
+    // ---- Gallery lightbox (nur wenn Foto vorhanden) ----
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const openLb = (src) => { lbImg.src = src; lb.classList.remove('hidden'); lb.classList.add('flex'); document.body.style.overflow = 'hidden'; };
+    const closeLb = () => { lb.classList.add('hidden'); lb.classList.remove('flex'); document.body.style.overflow = ''; };
+    document.querySelectorAll('.gal-item').forEach(b => b.addEventListener('click', () => {
+      const img = b.querySelector('img');
+      if (img && img.complete && img.naturalWidth > 0) openLb(b.dataset.src);
+    }));
+    document.getElementById('lightboxClose').addEventListener('click', closeLb);
+    lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeLb(); closeMM(); } });
+
+    // ---- Karte erst nach Zustimmung laden ----
+    document.getElementById('mapLoad').addEventListener('click', () => {
+      const box = document.getElementById('mapBox');
+      box.innerHTML = '<iframe title="Standort Schulte Bauunternehmen — Eisenbahnstraße 5a, 26683 Saterland-Scharrel" src="https://www.google.com/maps?q=Eisenbahnstra%C3%9Fe+5a,+26683+Saterland&z=15&output=embed" class="absolute inset-0 h-full w-full" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>';
+    });
+
+    // ---- Bewerbung: Dateiname anzeigen + Drag & Drop ----
+    const fileInput = document.getElementById('j-file');
+    const fileLabel = document.getElementById('fileLabel');
+    fileInput.addEventListener('change', () => {
+      fileLabel.textContent = fileInput.files.length ? fileInput.files[0].name : 'Datei auswählen oder hierher ziehen';
+    });
+    const dz = document.getElementById('dropzone');
+    ['dragover','dragenter'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.add('border-brand','bg-brandsoft'); }));
+    ['dragleave','drop'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.remove('border-brand','bg-brandsoft'); }));
+    dz.addEventListener('drop', e => { if (e.dataTransfer.files.length) { fileInput.files = e.dataTransfer.files; fileInput.dispatchEvent(new Event('change')); } });
+
+    // ---- Chatbot (regelbasiert, lokal) ----
+    const chatPanel = document.getElementById('chatPanel');
+    const chatBody = document.getElementById('chatBody');
+    const chatQuick = document.getElementById('chatQuick');
+    let chatStarted = false;
+    const QUICK = ['Leistungen', 'Plus-Energiehaus', 'Telefonnummer', 'Bewerbung'];
+
+    const INFO = {
+      fest: '04492 921381', festTel: '+494492921381',
+      mobil: '0173 2023620', mobilTel: '+491732023620',
+      mail: 'info@schultebau.net',
+      adresse: 'Eisenbahnstraße 5a, 26683 Saterland-Scharrel'
+    };
+    const A = (href, label) => '<a href="' + href + '" class="font-semibold underline decoration-brand">' + label + '</a>';
+    const telFest  = () => A('tel:' + INFO.festTel, INFO.fest);
+    const telMobil = () => A('tel:' + INFO.mobilTel, INFO.mobil);
+    const mailLink = () => A('mailto:' + INFO.mail, INFO.mail);
+    const formLink = (label) => A('#kontakt', label || 'Zum Kontaktformular');
+    const numbers  = () => '☎ Büro: ' + telFest() + '<br>📱 Mobil: ' + telMobil();
+
+    function addMsg(text, who) {
+      const wrap = document.createElement('div');
+      wrap.className = who === 'bot' ? 'flex justify-start' : 'flex justify-end';
+      const bubble = document.createElement('div');
+      bubble.className = (who === 'bot' ? 'bg-white text-ink border border-line' : 'bg-brand text-white') + ' max-w-[80%] rounded-2xl px-3.5 py-2 text-sm shadow-sm';
+      if (who === 'bot') bubble.innerHTML = text; else bubble.textContent = text;
+      wrap.appendChild(bubble);
+      chatBody.appendChild(wrap);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+    function typing() {
+      const t = document.createElement('div');
+      t.className = 'flex justify-start'; t.id = 'typing';
+      t.innerHTML = '<div class="bg-white border border-line rounded-2xl px-4 py-3 flex gap-1"><span class="dot h-1.5 w-1.5 rounded-full bg-ink2"></span><span class="dot h-1.5 w-1.5 rounded-full bg-ink2"></span><span class="dot h-1.5 w-1.5 rounded-full bg-ink2"></span></div>';
+      chatBody.appendChild(t); chatBody.scrollTop = chatBody.scrollHeight;
+    }
+    const RULES = [
+      [/telefon|nummer|anrufe?n|handy|mobil|erreich|kontaktdaten|whats\s?app/, () =>
+        'So erreichen Sie uns direkt:<br>' + numbers() + '<br>✉ ' + mailLink()],
+      [/e-?mail|mail|@/, () => 'Per E-Mail erreichen Sie uns unter ✉ ' + mailLink() + '.'],
+      [/adresse|anschrift|standort|anfahrt|wo (seid|sind|finde|liegt|ist)|umkreis|umgebung|gebiet|region|saterland|scharrel|cloppenburg|oldenburg|emsland|ostfriesland|ammerland/, () =>
+        '📍 Sie finden uns in der ' + INFO.adresse + '.<br>Wir bauen im Saterland und im gesamten Nordwesten. Fragen Sie einfach an, ob Ihr Ort dabei ist!'],
+      [/preis|kostet|kosten|teuer|günstig|angebot|budget|finanz|quadratmeter|\bqm\b/, () =>
+        'Jedes Bauvorhaben ist anders — deshalb beraten wir Sie zuerst <b>kostenlos und unverbindlich</b> und erstellen dann ein transparentes Angebot. 👍<br>' + telFest() + ' oder ' + formLink('Anfrage senden')],
+      [/wie lange|dauer|dauert|bauzeit|zeitrahmen|fertig/, () =>
+        'Die Bauzeit hängt von Hausgröße, Ausstattung und Genehmigung ab. Nach der Planung nennen wir Ihnen einen verlässlichen Zeitplan. ' + formLink('Beratung anfragen')],
+      [/plus|energie|photovoltaik|\bpv\b|solar|erdwärme|wärmepumpe|heiz|kfw|effizien|wallbox|e-?auto|lade|mobilität/, () =>
+        '☀️ <b>Plus-Energiehaus:</b> Mit Südausrichtung und großer PV-Anlage erzeugt Ihr Haus pro Jahr rund 1.200–3.200 kWh mehr Strom, als Sie verbrauchen. Dazu Erdwärmepumpe und Wallbox fürs E-Auto. ' + A('#energie', 'Mehr erfahren')],
+      [/sanier|modernis|umbau|anbau|altbau|bestand|renovier/, () =>
+        '🔧 <b>Bauen im Bestand:</b> Sanierung, Modernisierung, Um- und Anbau sowie energetische Sanierung. Gern schauen wir uns Ihr Haus vor Ort an. ' + formLink('Termin anfragen')],
+      [/rohbau|maurer|mauer|klinker|fundament|bodenplatte|beton|stein/, () =>
+        '🧱 <b>Rohbau &amp; Maurerarbeiten:</b> Fundament, Bodenplatte, Mauerwerk und Klinker — solide und termingerecht.'],
+      [/neubau|haus bauen|hausbau|schlüsselfertig|einfamilienhaus|doppelhaus|bauen/, () =>
+        '🏡 <b>Neubau:</b> Wir bauen Ihr Haus schlüsselfertig aus einer Hand — von der Planung bis zur Schlüsselübergabe, mit einem festen Ansprechpartner. ' + formLink('Beratung anfragen')],
+      [/grundstück|bauplatz|baugrund|immobilie|kaufen|verkauf/, () =>
+        'Wir kaufen und verkaufen auch <b>Bauplätze und Hausobjekte</b>. Sprechen Sie uns an: ' + telFest()],
+      [/referenz|projekt|beispiel|galerie|bilder|fotos/, () =>
+        'Im Bereich ' + A('#referenzen', 'Referenzen') + ' sehen Sie einen Auszug unserer Bauprojekte. 📸'],
+      [/bewerb|job|stelle|karriere|azubi|ausbildung|praktik|mitarbeiter/, () =>
+        'Schön, dass Sie mit uns bauen möchten! 👷 Im Bereich ' + A('#karriere', 'Karriere') + ' können Sie sich direkt online bewerben — auch mit Lebenslauf-Upload.'],
+      [/über (euch|sie|uns)|wer (seid|sind)|firma|seit wann|ulrich|schulte|erfahrung|geschäftsführ/, () =>
+        'Die <b>U. Schulte Bauunternehmung GmbH</b> aus Saterland-Scharrel wird von Ulrich Schulte geführt und hat über 25 Jahre Erfahrung im Hausbau, im Rohbau und bei Sanierungen.'],
+      [/leistung|service|was (macht|bietet|könnt|anbiet)|womit/, () =>
+        'Unsere Leistungen:<br>🏡 <b>Neubau</b> – schlüsselfertig aus einer Hand<br>🧱 <b>Rohbau</b> – Maurer- &amp; Klinkerarbeiten<br>🔧 <b>Bestand</b> – Sanierung, Modernisierung, Anbau<br>☀️ <b>Energie</b> – Plus-Energiehaus, PV, Erdwärme<br>Worum geht es bei Ihnen?'],
+      [/^\s*(hallo|hi|hey|moin|servus|grüß|guten (tag|morgen|abend))/, () =>
+        'Moin! 👋 Ich helfe Ihnen zu <b>Leistungen, Plus-Energiehaus, Kontakt &amp; Bewerbung</b>. Womit kann ich helfen?'],
+      [/danke|super|klasse|top|perfekt|prima/, () => 'Sehr gerne! 😊 Haben Sie noch eine Frage?'],
+      [/tschüss|ciao|bye|bis dann|schönen tag/, () => 'Bis bald und vielen Dank für Ihr Interesse! 👋']
+    ];
+    function botReply(text) {
+      const t = text.toLowerCase().trim();
+      for (const [re, fn] of RULES) { if (re.test(t)) return fn(); }
+      return 'Das beantwortet Ihnen unser Team am besten persönlich:<br>' + numbers() + '<br>✉ ' + mailLink() + '<br><br>Oder fragen Sie mich z. B. zu <b>Neubau, Sanierung, Plus-Energiehaus</b> oder <b>Bewerbung</b>.';
+    }
+    function respond(text) {
+      typing();
+      setTimeout(() => { document.getElementById('typing')?.remove(); addMsg(botReply(text), 'bot'); }, 650);
+    }
+    function startChat() {
+      if (chatStarted) return; chatStarted = true;
+      addMsg('Moin und herzlich willkommen bei <b>Schulte Bauunternehmen</b>! 🏗️ Womit kann ich helfen?', 'bot');
+      QUICK.forEach(q => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'cursor-pointer rounded-full border border-brand bg-white px-3 py-1.5 text-xs font-semibold text-ink hover:bg-brand hover:text-white transition-colors';
+        b.textContent = q;
+        b.addEventListener('click', () => { addMsg(q, 'user'); respond(q); });
+        chatQuick.appendChild(b);
+      });
+    }
+    // Links im Chat (z. B. #kontakt) schließen das Panel
+    chatBody.addEventListener('click', (e) => { if (e.target.closest('a[href^="#"]')) chatPanel.classList.add('closed'); });
+    document.getElementById('chatToggle').addEventListener('click', () => { if (!chatPanel.classList.toggle('closed')) startChat(); });
+    document.getElementById('chatClose').addEventListener('click', () => chatPanel.classList.add('closed'));
+    document.getElementById('chatForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = document.getElementById('chatInput');
+      const val = input.value.trim(); if (!val) return;
+      addMsg(val, 'user'); input.value = ''; respond(val);
+    });
+  </script>
+</body>
+</html>

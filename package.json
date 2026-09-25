@@ -1,0 +1,12 @@
+{
+  "name": "schulte-bauunternehmen",
+  "private": true,
+  "description": "Website U. Schulte Bauunternehmung GmbH",
+  "scripts": {
+    "build": "tailwindcss -i ./src/tailwind.css -o ./assets/css/tailwind.css --minify",
+    "watch": "tailwindcss -i ./src/tailwind.css -o ./assets/css/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
